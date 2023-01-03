@@ -3,56 +3,75 @@ This repo consists of all the basic commands.
 
 How to display the 10th line of a file?
 head -10 filename | tail -1
+
 2. How to remove the header from a file?
 sed -i '1 d' filename
+
 3. How to remove the footer from a file?
 sed -i '$ d' filename
+
 4. Write a command to find the length of a line in a file?
 The below command can be used to get a line from a file.
 sed –n '<n> p' filename
 We will see how to find the length of 10th line in a file
 sed -n '10 p' filename|wc -c
-5. How to get the nth word of a line in Unix?
+
+  5. How to get the nth word of a line in Unix?
 cut –f<n> -d' '
-6. How to reverse a string in unix?
+
+  6. How to reverse a string in unix?
 echo "java" | rev
-7. How to get the last word from a line in Unix file?
+
+  7. How to get the last word from a line in Unix file?
 echo "unix is good" | rev | cut -f1 -d' ' | rev
-8. How to replace the n-th line in a file with a new line in Unix?
+
+  8. How to replace the n-th line in a file with a new line in Unix?
 sed -i'' '10 d' filename       # d stands for delete
 sed -i'' '10 i new inserted line' filename     # i stands for insert
-9. How to check if the last command was successful in Unix?
+
+  9. How to check if the last command was successful in Unix?
 echo $?
-10. Write command to list all the links from a directory?
+
+  10. Write command to list all the links from a directory?
 ls -lrt | grep "^l"
-11. How will you find which operating system your system is running on in UNIX?
+
+  11. How will you find which operating system your system is running on in UNIX?
 uname -a
-12. Create a read-only file in your home directory?
+
+  12. Create a read-only file in your home directory?
 touch file; chmod 400 file
-13. How do you see command line history in UNIX?
+
+  13. How do you see command line history in UNIX?
 The 'history' command can be used to get the list of commands that we are executed.
-14. How to display the first 20 lines of a file?
+
+  14. How to display the first 20 lines of a file?
 By default, the head command displays the first 10 lines from a file. If we change the option of head, then we can display as many lines as we want.
 head -20 filename
 An alternative solution is using the sed command
 sed '21,$ d' filename
 The d option here deletes the lines from 21 to the end of the file
-15. Write a command to print the last line of a file?
+
+  15. Write a command to print the last line of a file?
 The tail command can be used to display the last lines from a file.
 tail -1 filename
 Alternative solutions are:
 sed -n '$ p' filename
 awk 'END{print $0}' filename
-16. How do you rename the files in a directory with _new as suffix?
+
+  16. How do you rename the files in a directory with _new as suffix?
 ls -lrt|grep '^-'| awk '{print "mv "$9" "$9".new"}' | sh
-17. Write a command to convert a string from lower case to upper case?
+
+  17. Write a command to convert a string from lower case to upper case?
 echo "apple" | tr [a-z] [A-Z]
-18. Write a command to convert a string to Initcap.
+
+  18. Write a command to convert a string to Initcap.
 echo apple | awk '{print toupper(substr($1,1,1)) tolower(substr($1,2))}'
-19. Write a command to redirect the output of date command to multiple files?
+
+  19. Write a command to redirect the output of date command to multiple files?
 The tee command writes the output to multiple files and also displays the output on the terminal.
 date | tee -a file1 file2 file3
-20. How do you list the hidden files in current directory?
+
+  20. How do you list the hidden files in current directory?
 ls -a | grep '^\.'
 
 21. List out some of the Hot Keys available in bash shell?
@@ -63,17 +82,22 @@ Ctrl+a - Places cursor at the beginning of the command at shell.
 Ctrl+e - Places cursor at the end of the command at shell. 
 Ctrl+d - Kills the shell. 
 Ctrl+z - Places the currently running process into background.
-22. How do you make an existing file empty?
+
+  22. How do you make an existing file empty?
 cat /dev/null >  filename
-23. How do you remove the first number on 10th line in file?
+
+  23. How do you remove the first number on 10th line in file?
 sed '10 s/[0-9][0-9]*//' < filename
-24. What is the difference between join -v and join -a?
+
+                                   24. What is the difference between join -v and join -a?
 join -v : outputs only matched lines between two files.
 join -a : In addition to the matched lines, this will output unmatched lines also.
-25. How do you display from the 5th character to the end of the line from a file?
+
+                                   25. How do you display from the 5th character to the end of the line from a file?
 cut -c 5- filename
 
-26. Display all the files in current directory sorted by size?
+
+                                   26. Display all the files in current directory sorted by size?
 ls -l | grep '^-' | awk '{print $5,$9}' |sort -n|awk '{print $2}'
 
 27. Write a command to search for the file 'map' in the current directory?
